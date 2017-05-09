@@ -8,11 +8,9 @@ import org.omg.CosNaming._
 import jp.co.toyo.spark.ods.ODSImplicits._
 
 object ODSCache {
-  def apply(ns: String, name: String, auth: String): ODSCache = {
-    val args = new Array[String](0)
-    val props = System.getProperties()
-    val orb = ORB.init(args, props)
+  val orb = ORB.init(new Array[String](0), System.getProperties())
 
+  def apply(ns: String, name: String, auth: String): ODSCache = {
     val objRef = orb.string_to_object(ns)
     val ncRef = NamingContextExtHelper.narrow(objRef)
 
