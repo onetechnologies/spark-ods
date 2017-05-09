@@ -44,6 +44,7 @@ object ResultSetUtil {
           var us = nvsui.value.u;
           us.discriminator().value() match {
             case DataType._DT_STRING => data = data :+ us.stringVal()(i)
+            case DataType._DT_SHORT => data = data :+ us.shortVal()(i)
             case DataType._DT_FLOAT => data = data :+ us.floatVal()(i)
             case DataType._DT_LONG => data = data :+ us.longVal()(i)
             case DataType._DT_DOUBLE => data = data :+ us.doubleVal()(i)
